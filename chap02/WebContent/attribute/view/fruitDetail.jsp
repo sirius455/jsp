@@ -1,0 +1,66 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title><%=request.getAttribute("fruitName")%>의 상세정보 페이지</title>
+</head>
+<body>
+
+<h1><%=request.getAttribute("fruitName") %></h1>
+
+<p><%=request.getAttribute("fruitDetail") %></p>
+
+<hr>
+
+<table border="1">
+	<tr>
+		<th>PRICE</th>
+		<th>SIZE</th>
+	</tr>
+	<%=request.getAttribute("apple1") %>
+	<%=request.getAttribute("apple2") %>
+	<%=request.getAttribute("apple3") %>
+	<%
+		Object[] apples = (Object[])request.getAttribute("appleArray");
+	
+		for(int i = 0; i < apples.length; ++i ){
+			out.print(apples[i]);
+		}
+	%>
+</table>
+
+<hr>
+
+<h3># Attribute에 들어있는 값들을 쉽게 꺼내 쓰는 방법 (EL, EXpression Language)</h3>
+
+<ul>
+	<li>Attribute에 들어있는 오브젝트를 쉽게 꺼내 쓸 수 있다</li>
+	<li>JSP를 서블릿으로 변환하는 과정에서 
+		해당 클래스의 toString()을 호출하여 html 페이지에 출력한다</li>
+	<li>EL을 통해 인스턴스의 필드에 접근하면 해당 필드의 getter를 자동으로 호출한다 </li>
+	<li>.찍고 접근한 필드가 getter가 없는 필드라면 에러가 발생한다</li>
+	
+</ul>
+
+<p>Attribute에 들어있는 값이 인스턴스인 경우 .찍고 필드명을 쓰면 해당 필드의 getter를 자동으로 호출한다
+밑처럼 쓰고싶다면 반드시 겟터를 생성해줘야한다</p>
+
+<ul>
+	<li>${fruitName }</li>
+	<li>${fruitDetail }</li>
+	<li>${apple1.size }</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
