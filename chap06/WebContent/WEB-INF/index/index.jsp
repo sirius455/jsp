@@ -12,6 +12,7 @@
 	
 <ul>
 	<li><a href="./admin/addQuestion">새 질문 등록하기 [현재 ${q_count} 개]</a></li>
+	<li><a href="./admin/addItem/index">새 항목 등록하기 [아직 완성되지 않은 질문 ${q_count2 }개]</a></li>
 </ul>	
 	
 <hr>
